@@ -1,19 +1,20 @@
 {
-  "name": "travelappudacitycapstone",
-  "version": "1.0.0",
-  "description": "This is a travel  project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "TravelAppUdacity"
-  },
-  "author": "Gagik",
-  "license": "ISC",
-  "devDependencies": {
-    "webpack": "^4.42.1",
-    "webpack-cli": "^3.3.11"
-  }
+	"name": "travelappudacitycapstone",
+	"version": "1.0.0",
+	"description": "This is a travel  project",
+	"private": true,
+	"main": "index.js",
+	"scripts": {
+		"start": "webpack"
+	},
+	"repository": {
+		"type": "git",
+		"url": "TravelAppUdacity"
+	},
+	"author": "Gagik",
+	"license": "ISC",
+	"devDependencies": {
+		"webpack": "^4.42.1",
+		"webpack-cli": "^3.3.11"
+	}
 }
