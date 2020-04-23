@@ -3,3 +3,10 @@
 .env
 Notes.txt
 /TravelAppUdacityCapstone.code-workspace
+/.prettierignore
+/.prettierrc
+/.gitignore
+/.vscode-janus-debug
+/.env
+/target
+/.vscode
