@@ -31,7 +31,7 @@ app.use(express.json());
 /* Initialize the main project folder*/
 app.use(express.static('dist'));
 
-const port = 30001;
+const port = process.env.port || 30001;
 /* Spin up the server*/
 const server = app.listen(port, listening);
 function listening() {
