@@ -1,30 +1,13 @@
-const webpack = require('webpack');
-// const webpackDevMiddleware = require('webpack-dev-middleware');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 require('dotenv').config();
+
 //$Variables
+
 let projectData = {};
 const data = [];
-
-/*
-//% Webpack config
-const config = require('../../webpack.server');
-const compiler = webpack(config);
-*/
-//*************************** */
-/*
-// Tell express to use the webpack-dev-middleware and use the webpack.server.js
-// configuration file as a base.
-app.use(
-   webpackDevMiddleware(compiler, {
-      publicPath: config.output.publicPath,
-   })
-);
-*/
-//***********	***** */
 
 /* Middleware*/
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 /* Initialize the main project folder*/
-app.use(express.static('dist'));
+app.use(express.static('.//'));
 
 const port = process.env.port || 30002;
 /* Spin up the server*/
