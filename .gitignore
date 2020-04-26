@@ -10,3 +10,4 @@ Notes.txt
 /.env
 /target
 /.vscode
+/src/client/weatherIcons
