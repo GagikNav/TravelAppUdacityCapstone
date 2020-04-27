@@ -7,19 +7,18 @@
    "scripts": {
       "test": "jest",
       "nodemon": "nodemon src/server/server.js",
-      "start": "webpack-dev-server  --config webpack.dev.js --open",
-      "build": "webpack",
-      "build-prod": "webpack --config webpack.prod.js"
+      "start": "webpack-dev-server --open",
+      "build-prod": "webpack --config webpack.prod.js",
+      "build": "webpack"
    },
    "repository": {
       "type": "git",
-      "url": "https://github.com/GagikNav/TravelAppUdacityCapstone"
+      "url": "git+https://github.com/GagikNav/TravelAppUdacityCapstone-Copy.git"
    },
    "author": "Gagik",
    "license": "ISC",
    "dependencies": {
-      "express": "^4.17.1",
-      "popper.js": "^1.16.1"
+      "express": "^4.17.1"
    },
    "devDependencies": {
       "@babel/core": "^7.9.0",
@@ -40,14 +39,17 @@
       "node-fetch": "^2.6.0",
       "node-sass": "^4.14.0",
       "optimize-css-assets-webpack-plugin": "^5.0.3",
-      "popper": "^1.0.1",
       "sass-loader": "^7.1.0",
       "style-loader": "^0.23.1",
       "webpack": "^4.43.0",
       "webpack-cli": "^3.3.5",
-      "webpack-dev-middleware": "^3.7.2",
       "webpack-dev-server": "^3.2.1",
       "webpack-merge": "^4.2.1",
-      "workbox-webpack-plugin": "^5.1.2"
-   }
+      "popper.js": "^1.16.1"
+   },
+   "bugs": {
+      "url": "https://github.com/GagikNav/TravelAppUdacityCapstone/issues"
+   },
+   "homepage": "https://github.com/GagikNav/TravelAppUdacityCapstone#readme",
+   "keywords": []
 }

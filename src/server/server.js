@@ -1,7 +1,6 @@
 const webpack = require('webpack');
 const fs = require('fs');
 const path = require('path');
-// const webpackDevMiddleware = require('webpack-dev-middleware');
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -22,21 +21,6 @@ const geoApiID = process.env.Geoname_API_ID;
 let projectData = {};
 const data = [];
 
-/*
-//% Webpack config
-const config = require('../../webpack.server');
-const compiler = webpack(config);
-*/
-//*************************** */
-/*
-// Tell express to use the webpack-dev-middleware and use the webpack.server.js
-// configuration file as a base.
-app.use(
-   webpackDevMiddleware(compiler, {
-      publicPath: config.output.publicPath,
-   })
-);
-*/
 //***********	***** */
 
 /* Middleware*/
@@ -46,15 +30,15 @@ app.use(cors());
 app.use(express.json());
 
 /* Initialize the main project folder*/
-app.use(express.static('./../client/views/'));
+app.use(express.static('dist'));
 
 /*  server*/
 
 let pData = '';
-app.get('/', (req, res) => {
-   res.sendFile(path.resolve('./src/client/views/index.html'));
-});
-app.post('/', (req, res) => {
+// app.get('/myGetRout', (req, res) => {
+//    res.sendFile(path.resolve('./src/client/views/index.html'));
+// });
+app.post('/myPostRoute', (req, res) => {
    let cityName = req.body.cityName.toUpperCase();
    const GeoURL = `http://api.geonames.org/searchJSON?q=${cityName}&username=${geoApiID}&maxRows=2`;
 
@@ -105,22 +89,19 @@ app.post('/', (req, res) => {
       getpixBayData(pixBayURL).then((data) => {
          console.log(data.hits[0]);
          let imgUrl = data.hits[0].webformatURL;
-         res.write(`<p><img src= "${imgUrl}"  class="icon" alt=""></p>`);
+         // res.write(`<p><img src= "${imgUrl}"  class="icon" alt=""></p>`);
       });
 
       //
       getCurrentData(currentURL).then((data) => {
          let pData = data;
          let wIcon = data.data[0].weather.icon;
-         let iconPath = path.resolve(
-            path.join('./src/client/weatherIcons/', wIcon)
-         );
          const fileUrl = ` https://www.weatherbit.io/static/img/icons/${wIcon}.png`;
 
-         res.write(
-            `<p>The wether in ${cityName} is ${data.data[0].weather.description} and temperature  is : ${data.data[0].temp} degree</p><p><img src= "${fileUrl}"  class="icon" alt=""></p>`
-         );
-         res.send();
+         // res.write(
+         //    `<p>The wether in ${cityName} is ${data.data[0].weather.description} and temperature  is : ${data.data[0].temp} degree</p><p><img src= "${fileUrl}"  class="icon" alt=""></p>`
+         // );
+         res.send(imgUrl, wIcon);
       });
    });
 });
