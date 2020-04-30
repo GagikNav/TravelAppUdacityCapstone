@@ -16,29 +16,32 @@
             <form action="/" method="post">
                 <label for="cityInput">Enter City Name here</label>
                 <input type="text" id="cityInput" placeholder="enter city name here" name="cityName" value="London">
-                <input type="text" id="depDate" placeholder="enter city name here" name="cityName" value="London">
-                <input type="text" id="arriveDate" placeholder="enter city name here" name="cityName" value="London">
-                <button type="submit">Go</button>
+                <input type="submit" id="" value="Go" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return Client.handleSubmit(event)">
+
+
+
+                <!-- <input type="text" id="depDate" placeholder="enter city name here" name="cityName" value="London"> -->
+                <!-- <input type="text" id="arriveDate" placeholder="enter city name here" name="cityName" value="London"> -->
             </form>
         </div>
         <div>
             <section id="travelInfo">
                 <section id="info">
                     <p id="day"></p>
-                    <p id='weather'></p>
                     <img id="weatherIcon" src="" alt="" srcset="">
+                    <p id='weather'></p>
                     <p id="temp"></p>
                 </section>
             </section>
-            <section id='photo'></section>
+            <section i>
+                <img id="photo" src="" alt="" srcset="">
+            </section>
         </div>
-
-
-
-
-
-
     </div>
+
+    <a href="about.html">about</a>
+
 
 </body>
 

@@ -1,5 +1,7 @@
 //%% Imports
 
+//html
+// import '../client/views/about.html';
 //  Styling Section
 import './styles/style.scss';
 
