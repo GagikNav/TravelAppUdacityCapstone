@@ -3,35 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Weather Journal</title>
+    <title>Travel Journal</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div id="app">
         <div class="holder headline">
-            Weather Journal App
+            Travel Journal App
         </div>
-        <div class="holder zip">
-            <label for="zip">Enter Zipcode here</label>
-            <input type="text" id="zip" placeholder="enter zip code here">
+        <div class="cityName">
+            <form action="/" method="post">
+                <label for="cityInput">Enter City Name here</label>
+                <input type="text" id="cityInput" placeholder="enter city name here" name="cityName" value="London">
+                <input type="submit" id="" value="Go" onclick="return Client.handleSubmit(event)"
+                    onsubmit="return Client.handleSubmit(event)">
+
+
+
+                <!-- <input type="text" id="depDate" placeholder="enter city name here" name="cityName" value="London"> -->
+                <!-- <input type="text" id="arriveDate" placeholder="enter city name here" name="cityName" value="London"> -->
+            </form>
         </div>
-        <div class="holder feel">
-            <label for="feelings">How are you feeling today?</label>
-            <textarea class="myInput" id="feelings" placeholder="Enter your feelings here" rows="9"
-                cols="50"></textarea>
-            <button id="generate" type="submit"> Generate </button>
-        </div>
-        <div class="holder entry">
-            <div class="title">Most Recent Entry</div>
-            <div id="entryHolder">
-                <div id="date"></div>
-                <div id="temp"></div>
-                <div id="content"></div>
-            </div>
+        <div>
+            <section id="travelInfo">
+                <section id="info">
+                    <p id="day"></p>
+                    <img id="weatherIcon" src="" alt="" srcset="">
+                    <p id='weather'></p>
+                    <p id="temp"></p>
+                </section>
+            </section>
+            <section i>
+                <img id="photo" src="" alt="" srcset="">
+            </section>
         </div>
     </div>
+
+    <a href="about.html">about</a>
+
 
 </body>
 
