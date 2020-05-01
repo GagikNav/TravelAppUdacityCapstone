@@ -1,4 +1,4 @@
-const port = process.env.port || 30001;
+const port = process.env.port || 30002;
 const webpack = require('webpack');
 const path = require('path');
 const express = require('express');
@@ -27,38 +27,42 @@ app.use(express.static('dist'));
 // Main PostRoute
 
 app.post(`/mypostroute`, (req, res) => {
-   city = req.body;
-   mainFn(city).then((data) => {
+   formData = req.body;
+
+   console.log(`\n\nThis is form Data:\n`, formData);
+
+   mainFn(formData).then((data) => {
       res.json(data);
-      console.log(data); //Its working
+      // console.log(data); //Its working
    });
 });
-
+//https://api.weatherbit.io/v2.0/history/daily?lat=${lat}&lon=${lng}&start_date=2020-04-27&end_date=2020-04-28&key=${weathApiKey}
 // `http://localhost:${port}/myPostRoute`;
 // Get data from APIs //
 
-async function mainFn(city) {
-   const GeoURL = `http://api.geonames.org/searchJSON?q=${city.city}&username=${geoApiID}&maxRows=2`;
+async function mainFn(formData) {
+   const GeoURL = `http://api.geonames.org/searchJSON?q=${formData.city}&username=${geoApiID}&maxRows=2`;
    const geoData = await getGeoData(GeoURL);
    let data = {};
-   const pixBayURL = `https://pixabay.com/api/?key=${pixBayApiKey}&q=${city.city}&image_type=photo&orientation=horizontal&category=places&editors_choice=true`;
+   const pixBayURL = `https://pixabay.com/api/?key=${pixBayApiKey}&q=${formData.city}&image_type=photo&orientation=horizontal&category=places&editors_choice=true`;
 
    try {
       let cityName = geoData.geonames[0].name;
       let lng = Number(geoData.geonames[0].lng).toFixed(2);
       let lat = Number(geoData.geonames[0].lat).toFixed(2);
-      const currentURL = `https://api.weatherbit.io/v2.0/current?lat=${lat}&lon=${lng}&days=16&key=${weathApiKey}`;
+
+      const currentURL = `https://api.weatherbit.io/v2.0/history/daily?lat=${lat}&lon=${lng}&start_date=${formData.startDate}&end_date=${formData.endDate}&key=${weathApiKey}
+`;
       //!There should be error handling for this part
 
       const imgUrl = await getpixBayData(pixBayURL); //getting image url
       const webFormatImage = imgUrl.hits[0].webformatURL;
       const wData = await getCurrentData(currentURL); // getting weather data
-      const wIcon = `https://www.weatherbit.io/static/img/icons/${wData.data[0].weather.icon}.png`;
+      // console.log(wData);
       const weatherData = {
-         cityName: cityName,
+         cityName: wData.city_name,
          temp: wData.data[0].temp,
-         weather: wData.data[0].weather.description,
-         icon: wIcon,
+         clouds: wData.data[0].clouds,
          image: webFormatImage,
       };
       data = weatherData;

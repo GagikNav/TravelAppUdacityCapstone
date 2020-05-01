@@ -1,59 +1,32 @@
 // const depDate = document.getElementById('depDate').value;
 // const arriveDate = document.getElementById('arriveDate').value;
-const port = 30001;
-let serverData = {};
+const port = 30002;
+let serverData = {}; //Data that is getting back from server
+//let serverData = {
+//    //Data is  for testing
+//    cityName: 'London',
+//    temp: 14.3,
+//    clouds: 1,
+//    image: 'https://pixabay.com/get/53e3d5434f57b10ff3d8992cc62e367b1439dce64e5074417d2c7ed7904cc3_640.jpg',
+// };
 // Form section
 //
 const handleSubmit = (event) => {
    event.preventDefault();
    const city = document.getElementById('cityInput').value.toUpperCase();
-   // console.log(city);
+   const startDate = document.getElementById('startDate').value;
+   const endDate = document.getElementById('endDate').value;
+   const tripDays = Client.daysCalc(startDate, endDate);
+   const wurl = tripDays > 3 ? `forecast` : `current`; // Choosing  to use which URL
+   const formObj = { city, startDate, endDate, tripDays, wurl }; // Form data object for sending to server
+
    // Sending Data to server
-   postData(`http://localhost:${port}/mypostroute`, { city })
+   Client.postData(`http://localhost:${port}/mypostroute`, formObj)
       .then((data) => {
          serverData = data;
          console.log(serverData);
       })
-      .then(updateUI);
+      .then(Client.updateUI(serverData));
 };
-// `http://localhost:${port}/myPostRoute`;
-async function postData(url = '', data = {}) {
-   const response = await fetch(url, {
-      method: 'POST',
-      body: JSON.stringify(data),
-      headers: { 'Content-Type': 'application/json' },
-   });
-   try {
-      const newData = await response.json();
-      // console.log(newData);
-      return newData;
-   } catch (error) {
-      console.error('Error!!', error);
-   }
-}
-//
 
-//
-const updateUI = async () => {
-   document.getElementById('weatherIcon').src = serverData.icon;
-   document.getElementById('photo').src = serverData.image;
-   document.getElementById('temp').innerHTML = `Temperature: ` + serverData.temp;
-   document.getElementById('weather').innerHTML = `Weather is: ` + serverData.weather;
-};
-//User interface function
-//
-/*
-const updat = async () => {
-   const request = await fetch('/');
-   try {
-      const allData = await request.json();
-      // console.log(allData);
-      document.getElementById('date').innerHTML = `date: ` + covertDate(allData.date);
-      document.getElementById('temp').innerHTML = `Temperature: ` + allData.temperature;
-      document.getElementById('content').innerHTML = `User Feelings: ` + allData.user_respond;
-   } catch (error) {
-      console.log('error', error);
-   }
-};
-*/
 export { handleSubmit };

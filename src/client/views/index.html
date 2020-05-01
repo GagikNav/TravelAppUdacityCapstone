@@ -12,10 +12,21 @@
         <div class="holder headline">
             Travel Journal App
         </div>
-        <div class="cityName">
+        <div class="inputForm">
             <form action="/" method="post">
                 <label for="cityInput">Enter City Name here</label>
                 <input type="text" id="cityInput" placeholder="enter city name here" name="cityName" value="London">
+
+                <!-- Start Date -->
+                <label for="startTrip">Your Trip Starts at :</label>
+                <input type="date" id="startDate" name="startDate" value="2020-04-22" min="2018-01-01"
+                    max="2025-12-31">>
+
+                <!-- End Date -->
+                <label for="endTrip">Your Trip Ends at :</label>
+                <input type="date" id="endDate" name="endDate" value="2020-04-23" min="2018-01-01" max="2025-12-31">>
+
+                <!-- Bottom -->
                 <input type="submit" id="" value="Go" onclick="return Client.handleSubmit(event)"
                     onsubmit="return Client.handleSubmit(event)">
 
