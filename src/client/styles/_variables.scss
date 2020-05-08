@@ -1,0 +1,17 @@
+$primery-color: rgb(184, 111, 252);
+$margin-large: 2rem;
+$margin-small: 0.5rem;
+$fontFamily: -apple-system,
+BlinkMacSystemFont,
+sans-serif;
+$border: solid black 1px;
+$shadow-hover: 5px 10px 8px rgb(80, 80, 80);
+
+
+$shadow: 5px 5px 8px #888;
+
+@mixin flexCenter() {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

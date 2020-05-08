@@ -1,4 +1,116 @@
-body {
-   background: #ad8d9f;
-   // font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+@import "./variables";
+
+@import "./body";
+// 
+
+
+.banner {
+   @include flexCenter();
+   margin-top: 1rem;
+   margin-bottom: 1rem;
+   background-image: url("https://cdn.pixabay.com/photo/2016/11/29/05/55/asphalt-1867667_1280.jpg");
+   height: 200px;
+   background-repeat: no-repeat;
+   background-size: cover;
+   color: rgb(53, 255, 238);
+   font-size: 3rem;
+   text-shadow: 2px 2px black;
+   text-align: center;
+
 }
+
+
+.container-1 {
+   display: grid;
+   grid-template-columns: 1fr 2fr 1fr;
+   grid-template-rows: 1fr;
+   height: auto;
+   background-color: rgba(211, 211, 211, 0.87);
+
+   form {
+      @include flexCenter();
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: start;
+      height: auto;
+      padding: 1rem;
+      font-size: 1rem;
+
+      input {
+         width: 80%;
+         height: 3rem;
+         font-size: 1.1rem;
+      }
+
+
+   }
+
+
+   div.input {
+      // border: $border;
+
+   }
+
+
+   button {
+      margin: 1rem;
+
+      input {
+         width: 10rem;
+         height: 2rem;
+      }
+
+      & :hover {
+         background-color: rgb(224, 224, 224);
+         cursor: pointer;
+      }
+   }
+
+   img#image {
+      justify-self: center;
+      align-self: center;
+      grid-column: 2;
+      height: 80%;
+      max-height: 400px;
+      max-width: 700px;
+      width: 80%;
+      transition: width 400ms, height 300ms;
+      transition-delay: 100ms;
+      box-shadow: $shadow;
+
+      &:hover {
+         height: 90%;
+         width: 90%;
+         box-shadow: $shadow-hover;
+      }
+
+   }
+
+   section {
+      grid-column: 3;
+      @include flexCenter();
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+
+      ul {
+         list-style: none;
+         font-size: 1.1rem;
+
+         li {
+            margin: 3rem;
+         }
+      }
+
+
+      img#weatherIcon {
+         height: 10rem;
+
+      }
+   }
+
+
+}
+
+@import "./medium";
+@import "./small";

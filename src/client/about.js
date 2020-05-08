@@ -1,2 +1,1 @@
-alert('hello');
-let data;
+import './styles/about.scss';

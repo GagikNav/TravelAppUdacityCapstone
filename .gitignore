@@ -10,3 +10,4 @@ Notes.txt
 /target
 /.vscode
 /src/client/Images/weatherIcons
+/coverage

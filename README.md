@@ -2,18 +2,23 @@
 
 ## Overview
 
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI.
+In This app you can enter travel information. The app expects a city name,departure date, and return date. Using given information, it will get position ( longitude and latitude ) data from Geonames API by sending city name. Then it will send position data to weatherbit and depending how far departure date is, it will get the forecast data in 5 days or 16 days for the weather in that area. Also, it will go to Pixabay and get an image related to that place.
 
-# Bulett points
+# Technologies used
 
-- The API key is temporary one
-- In the zip code section you can add Country followed by comma
-(eg. ",us") to change the country
+Node.js
+Webpack
+Express
+Babel
+WorkerBox
+Jest
 
 ## Instructions
 
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+-  npm install
+-  Start the server npm run nodemon
+-  npm run build-prod
 
-## Extras
+## References
 
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
+APIs from "weatherbit.io", "geonames.org" and "pixabay.com" were used in this project.

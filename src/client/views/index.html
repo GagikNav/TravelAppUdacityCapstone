@@ -2,58 +2,76 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Travel Journal</title>
-    <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap" rel="stylesheet">
+   <meta charset="UTF-8" />
+   <title>Travel Journal</title>
+   <link href="https://fonts.googleapis.com/css?family=Oswald:400,600,700|Ranga:400,700&display=swap"
+      rel="stylesheet" />
 </head>
 
 <body>
-    <div id="app">
-        <div class="holder headline">
-            Travel Journal App
-        </div>
-        <div class="inputForm">
-            <form action="/" method="post">
-                <label for="cityInput">Enter City Name here</label>
-                <input type="text" id="cityInput" placeholder="enter city name here" name="cityName" value="London">
+   <h1 class="banner">This is a Travel Journal App</h1>
 
-                <!-- Start Date -->
-                <label for="startTrip">Your Trip Starts at :</label>
-                <input type="date" id="startDate" name="startDate" value="2020-04-22" min="2018-01-01"
-                    max="2025-12-31">>
+   <div class="container-1">
 
-                <!-- End Date -->
-                <label for="endTrip">Your Trip Ends at :</label>
-                <input type="date" id="endDate" name="endDate" value="2020-04-23" min="2018-01-01" max="2025-12-31">>
+      <div class="input">
+         <form action="/" method="post">
+            <label for="cityInput">Enter City Name here</label>
+            <input type="text" id="cityInput" placeholder="enter city name here" name="cityName" value="London" />
+            <!-- Start Date -->
+            <label for="startTrip">Your Trip Starts at :</label>
+            <input type="date" id="startDate" name="startDate" value="2020-05-22" min="2018-01-01" max="2025-12-31" />
 
-                <!-- Bottom -->
-                <input type="submit" id="" value="Go" onclick="return Client.handleSubmit(event)"
-                    onsubmit="return Client.handleSubmit(event)">
+            <!-- End Date -->
+            <label for="endTrip">Your Trip Ends at :</label>
+            <input type="date" id="endDate" name="endDate" value="2020-05-23" min="2018-01-01" max="2025-12-31" />
 
+            <!-- Button -->
+            <button>
+               <input type="submit" id="" value="Check" onclick="return Client.handleSubmit(event)"
+                  onsubmit="return Client.handleSubmit(event)" />
+            </button>
+      </div>
+      <!-- end of Input DIV -->
+      <img id="image" src="../images/wyoming-4786394_640.jpg" alt="image" srcset="" />
+      </form>
+      <h2 id="welcome">Welcome!!
+         <p>Where do you Plan to go? </p>
+      </h2>
+      <section id="travelInfo">
+         <ul class="info">
+            <li>
+               Your trip is <strong id="day"></strong> day/s long to
+               <strong id="country"></strong> in <strong id="city"></strong> city
+            </li>
+            <li>
+               The Weather Most Likely would be:<strong id="weather"></strong>
+            </li>
+            <li>
+               The Temperature Most Likely would be:<strong id="temp"></strong> degree
+            </li>
+         </ul>
 
+         <img id="weatherIcon" src="../images/a01d.png" alt="weatherIcon" srcset="" />
+      </section>
+   </div>
+   <!-- end of form div -->
 
-                <!-- <input type="text" id="depDate" placeholder="enter city name here" name="cityName" value="London"> -->
-                <!-- <input type="text" id="arriveDate" placeholder="enter city name here" name="cityName" value="London"> -->
-            </form>
-        </div>
-        <div>
-            <section id="travelInfo">
-                <section id="info">
-                    <p id="day"></p>
-                    <img id="weatherIcon" src="" alt="" srcset="">
-                    <p id='weather'></p>
-                    <p id="temp"></p>
-                </section>
-            </section>
-            <section i>
-                <img id="photo" src="" alt="" srcset="">
-            </section>
-        </div>
-    </div>
+   <a href="about.html">about</a>
 
-    <a href="about.html">about</a>
-
-
+   <script>
+      if ('serviceWorker' in navigator) {
+         window.addEventListener('load', () => {
+            navigator.serviceWorker
+               .register('./service-worker.js')
+               .then((registration) => {
+                  console.log('SW registered: ', registration);
+               })
+               .catch((registrationError) => {
+                  console.log('SW registration failed: ', registrationError);
+               });
+         });
+      };
+   </script>
 </body>
 
 </html>

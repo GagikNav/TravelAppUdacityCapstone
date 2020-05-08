@@ -1,0 +1,33 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background-blend-mode: exclusion;
+   background: $primery-color;
+   font-family: $fontFamily;
+   margin-left: $margin-large;
+   margin-right: $margin-large;
+}
+
+@media (max-width: 599px) {
+   body {
+      background-blend-mode: exclusion;
+      background: $primery-color;
+      font-family: $fontFamily;
+      margin-left: $margin-small;
+      margin-right: $margin-small;
+   }
+}
+
+#travelInfo {
+   display: none;
+}
+
+#welcome {
+   margin-top: 5rem;
+   margin-bottom: 5rem;
+   padding: 1rem
+}
