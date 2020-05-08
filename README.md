@@ -6,11 +6,11 @@ In This app you can enter travel information. The app expects a city name,depart
 
 # Technologies used
 
-Node.js
-Webpack
-Express
-Babel
-WorkerBox
+Node.js,
+Webpack,
+Express,
+Babel,
+WorkerBox,
 Jest
 
 ## Instructions
