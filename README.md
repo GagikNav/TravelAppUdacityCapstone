@@ -18,6 +18,12 @@ Jest
 -  npm install
 -  Start the server npm run nodemon
 -  npm run build-prod
+-  It is required to create ".env " file in root with a following data which should be obtain from three APIs.
+   -  Geoname_API_ID = \***\*\*\*\*** => geonames.org api user Name
+   -  Weath_Api_Key = e6b**\***52 => weatherbit.io api key
+   -  PixBay_Api_Key= 1\***\*\*\*\*\***4d8e => pixabay.com api key
+-  For test:
+   -  npm test
 
 ## References
 

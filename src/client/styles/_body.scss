@@ -12,15 +12,7 @@ body {
    margin-right: $margin-large;
 }
 
-@media (max-width: 599px) {
-   body {
-      background-blend-mode: exclusion;
-      background: $primery-color;
-      font-family: $fontFamily;
-      margin-left: $margin-small;
-      margin-right: $margin-small;
-   }
-}
+// 
 
 #travelInfo {
    display: none;

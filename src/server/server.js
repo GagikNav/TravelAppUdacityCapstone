@@ -21,14 +21,17 @@ app.use(express.static('dist'));
 
 // Main PostRoute
 
-app.post(`/mypostroute`, (req, res) => {
+app.post('/mypostroute', (req, res) => {
    formData = req.body;
+   // console.log(req); //Its working
    mainFn(formData).then((data) => {
       res.json(data);
-      // console.log(data); //Its working
    });
 });
 
+app.get('/test', (req, res) => {
+   res.json({ value: 'hello!' });
+});
 //the servers main function
 
 async function mainFn(formData) {
@@ -86,6 +89,8 @@ async function getData(url) {
 
 /*  Running  server*/
 //
+const server = app;
 app.listen(port, () => {
    console.log(`running on localhost: ${port}.....`);
 });
+module.exports = server;

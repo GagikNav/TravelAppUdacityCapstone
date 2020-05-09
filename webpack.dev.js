@@ -41,11 +41,18 @@ module.exports = merge(common, {
    //dev-server config
    devServer: {
       contentBase: path.join(__dirname, './dist/'),
-      port: 30002,
+      port: 30001,
       compress: true,
       publicPath: '/',
       host: `localhost`,
       stats: 'errors-only',
+
+      proxy: {
+         '/api': {
+            target: 'http://localhost:30001',
+            pathRewrite: { '^/api': '' },
+         },
+      },
    },
    plugins: [
       new HtmlWebpackPlugin({

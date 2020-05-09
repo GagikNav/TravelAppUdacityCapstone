@@ -17,17 +17,18 @@ app.use(express.static('dist'));
 
 // Main PostRoute
 
+const data = {
+   cityName: 'London',
+   countryName: 'United Kingdom',
+   temp: 18.3,
+   clouds: 58,
+   weather: { icon: 'c03d', code: 803, description: 'Broken clouds' },
+   image:
+      'https://pixabay.com/get/53e3d5434f57b10ff3d8992cc62e367b1439dce64e5074417d287cdd924dc7_640.jpg',
+};
 app.post(`/mypostroute`, (req, res) => {
    formData = req.body;
 
-   const data = {
-      cityName: 'London',
-      countryName: 'United Kingdom',
-      temp: 18.3,
-      clouds: 58,
-      weather: { icon: 'c03d', code: 803, description: 'Broken clouds' },
-      image: 'https://pixabay.com/get/53e3d5434f57b10ff3d8992cc62e367b1439dce64e5074417d287cdd924dc7_640.jpg',
-   };
    res.json(data);
    // console.log(data); //Its working
 });
@@ -42,6 +43,7 @@ app.post(`/mypostroute`, (req, res) => {
 
 /*  Running  server*/
 //
-app.listen(port, () => {
+let server = app.listen(port, () => {
    console.log(`running on localhost: ${port}.....`);
 });
+module.exports = server;
