@@ -10,7 +10,7 @@ Node.js,
 Webpack,
 Express,
 Babel,
-WorkerBox,
+WorkBox,
 Jest
 
 ## Instructions
