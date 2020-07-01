@@ -1,4 +1,4 @@
-const PORT = process.env.PORT || 26765;
+const PORT = process.env.PORT || 5000;
 let serverData = {}; //Data that is getting back from server
 
 // Form section
@@ -23,7 +23,7 @@ const handleSubmit = (event) => {
          wurl,
       };
    // Sending Data to server
-   Client.postData(`http://localhost:${port}/mypostroute`, formObj).then(
+   Client.postData(`http://localhost:${PORT}/mypostroute`, formObj).then(
       async (data) => {
          serverData = await data;
          try {
