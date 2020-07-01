@@ -8,8 +8,8 @@
       "test": "cross-env NODE_ENV=test jest   --forceExit  --detectOpenHandles ",
       "start": "node src/server/server.js",
       "dev-server": "webpack-dev-server --config webpack.dev --mode development  --open",
-      "build-prod": "webpack --config webpack.prod.js",
-      "build": "webpack --config webpack.dev.js"
+      "build": "webpack --config webpack.prod.js"
+      // webpack --config webpack.dev.js
    },
    "repository": {
       "type": "git",
