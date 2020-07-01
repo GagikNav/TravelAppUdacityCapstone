@@ -1,4 +1,4 @@
-const port = 30001;
+const port = process.env.PORT || 5000;
 let serverData = {}; //Data that is getting back from server
 
 // Form section

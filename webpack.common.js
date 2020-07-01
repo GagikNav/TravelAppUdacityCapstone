@@ -7,7 +7,7 @@ module.exports = {
       about: './src/client/about.js',
    },
 
-   devtool: 'inline-source-map',
+   devtool: 'source-map',
 
    output: {
       libraryTarget: 'var',

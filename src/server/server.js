@@ -1,4 +1,4 @@
-const port = process.env.PORT; //  || 30001;
+const port = process.env.PORT || 30001;
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
@@ -91,6 +91,6 @@ async function getData(url) {
 //
 const server = app;
 app.listen(port, () => {
-   console.log(`running on localhost: ${port}.....`);
+   console.log(`Running on localhost: ${port}.....`);
 });
 module.exports = server;
