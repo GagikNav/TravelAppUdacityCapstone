@@ -2,14 +2,12 @@
    "name": "travel-app-udacity-capstone",
    "version": "1.0.0",
    "description": "This is a travel App project",
-   "private": true,
    "main": "server.js",
    "scripts": {
       "test": "cross-env NODE_ENV=test jest   --forceExit  --detectOpenHandles ",
       "start": "node src/server/server.js",
       "dev-server": "webpack-dev-server --config webpack.dev --mode development  --open",
       "build": "webpack --config webpack.prod.js"
-      // webpack --config webpack.dev.js
    },
    "repository": {
       "type": "git",
@@ -64,5 +62,8 @@
       "url": "https://github.com/GagikNav/TravelAppUdacityCapstone/issues"
    },
    "homepage": "https://github.com/GagikNav/TravelAppUdacityCapstone#readme",
-   "keywords": []
+   "keywords": [],
+   "engines": {
+      "node": "12.18.0"
+   }
 }
