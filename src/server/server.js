@@ -92,7 +92,12 @@ async function getData(url) {
 /*  Running  server*/
 //
 
-app.set('port', PORT);
-app.listen(PORT, () => {
-   console.log(`Running on localhost: ${PORT}.....`);
+app.listen(process.env.PORT || 8080, function () {
+   app.set('port', PORT);
+   console.log(
+      'Express server listening on port %d in %s mode',
+      this.address().port,
+      app.settings.env
+   );
+   // console.log(`Running on localhost: ${PORT}.....`);
 });
