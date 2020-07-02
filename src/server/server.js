@@ -1,5 +1,5 @@
 // const PORT = process.env.PORT || 30001;
-let PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 
 const express = require('express');
 const app = express();
@@ -92,9 +92,7 @@ async function getData(url) {
 /*  Running  server*/
 //
 
+app.set('port', PORT);
 app.listen(PORT, () => {
-   if (PORT == null || PORT == '') {
-      PORT = 8000;
-   }
    console.log(`Running on localhost: ${PORT}.....`);
 });
